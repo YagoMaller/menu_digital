@@ -48,6 +48,7 @@ function isTextOverflowing(element) {
   return element.scrollWidth > element.clientWidth;
 }
 
+
 /**
  * Crea los indicadores de posición para un carrusel.
  * @param {HTMLElement} container - Contenedor del carrusel (.categorias o .subcategorias)
@@ -70,6 +71,8 @@ function generarIndicadores(container) {
     indicadorContainer.appendChild(punto);
   });
 }
+
+
 /**
  * Realiza un scroll suave hacia el elemento recibido como parámetro,
  * ajustando la posición según la altura del header.
