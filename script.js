@@ -280,6 +280,7 @@ function renderSubcategorias(local, cat, evitarScroll = false) {
 
   const subcats = menuData[local][cat];
   for (const sub in subcats) {
+    if (sub === "descripcion") continue;
     const subBtn = document.createElement("button");
     subBtn.textContent = sub;
     subBtn.onclick = () => {
@@ -458,6 +459,7 @@ function renderSecciones() {
     isFirst = false;
 
     for (const categoria in menuData[local]) {
+      const catData = menuData[local][categoria];
       const sectionCat = document.createElement("section");
       sectionCat.setAttribute("data-categoria", categoria);
       sectionCat.setAttribute("data-local", local);
@@ -473,15 +475,25 @@ function renderSecciones() {
       h3.innerHTML = `<span>${categoria}</span>`;
       sectionCat.appendChild(h3);
 
-      for (const subcategoria in menuData[local][categoria]) {
-        const productos = menuData[local][categoria][subcategoria];
+      if (catData.descripcion) {
+        const pDesc = document.createElement("p");
+        pDesc.classList.add("descripcion-categoria");
+        pDesc.textContent = catData.descripcion;
+        sectionCat.appendChild(pDesc);
+      }
+
+      for (const subcategoria in catData) {
+        if (subcategoria === "descripcion") continue;
+        const subData = catData[subcategoria];
+        const productos = Array.isArray(subData) ? subData : subData.productos || [];
+        const subDesc = Array.isArray(subData) ? "" : subData.descripcion || "";
 
         const sectionSub = document.createElement("section");
         sectionSub.setAttribute("data-subcategoria", subcategoria);
         sectionSub.dataset.local = local;
         sectionSub.dataset.categoria = categoria;
         sectionSub.classList.add("subcategoria-block");
-        
+
         const key = `${local}-${categoria}-${subcategoria}`;
         if (backgroundImages[key]) {
           const h4 = document.createElement("h4");
@@ -490,7 +502,16 @@ function renderSecciones() {
           h4.innerHTML = `<span>${subcategoria}</span>`;
           sectionSub.appendChild(h4);
         } else {
-          sectionSub.innerHTML = `<h4>${subcategoria}</h4>`;
+          const h4 = document.createElement("h4");
+          h4.textContent = subcategoria;
+          sectionSub.appendChild(h4);
+        }
+
+        if (subDesc) {
+          const pSub = document.createElement("p");
+          pSub.classList.add("descripcion-subcategoria");
+          pSub.textContent = subDesc;
+          sectionSub.appendChild(pSub);
         }
 
         productos.forEach((p) => {
@@ -504,7 +525,7 @@ function renderSecciones() {
               <div class="precio">$${p.precio}</div>
             </div>
           `;
-          
+
         });
 
         sectionCat.appendChild(sectionSub);

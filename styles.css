@@ -177,6 +177,14 @@ h4 {
 }
 
 
+.descripcion-categoria,
+.descripcion-subcategoria {
+  font-size: 14px;
+  font-weight: 300;
+  margin: 10px 0;
+  text-align: center;
+}
+
 .precio {
   font-size: 18px;
   color: var(--color-primary);

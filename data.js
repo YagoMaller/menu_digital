@@ -1,38 +1,42 @@
 const menuData = {
   "Chopchop": {
     "Comidas": {
-      "Entradas": [
-        {
-          "nombre": "Lengua a la vinagreta",
-          "detalle": "",
-          "precio": "7200"
-        },
-        {
-          "nombre": "Revuelto gramajo",
-          "detalle": "con jamón, queso y arvejas",
-          "precio": "9000"
-        },
-        {
-          "nombre": "Jamón Crudo",
-          "detalle": "",
-          "precio": "9200"
-        },
-        {
-          "nombre": "Tirolé Mixto",
-          "detalle": "de jamón, queso, mix de aceitunas",
-          "precio": "6000"
-        },
-        {
-          "nombre": "Tortilla de papa y cebolla",
-          "detalle": "para 2",
-          "precio": "9000"
-        },
-        {
-          "nombre": "Buñuelos de jamón y doble queso",
-          "detalle": "",
-          "precio": "7500"
-        }
-      ],
+      "descripcion": "Opciones para compartir y disfrutar",
+      "Entradas": {
+        "descripcion": "Para comenzar la experiencia",
+        "productos": [
+          {
+            "nombre": "Lengua a la vinagreta",
+            "detalle": "",
+            "precio": "7200"
+          },
+          {
+            "nombre": "Revuelto gramajo",
+            "detalle": "con jamón, queso y arvejas",
+            "precio": "9000"
+          },
+          {
+            "nombre": "Jamón Crudo",
+            "detalle": "",
+            "precio": "9200"
+          },
+          {
+            "nombre": "Tirolé Mixto",
+            "detalle": "de jamón, queso, mix de aceitunas",
+            "precio": "6000"
+          },
+          {
+            "nombre": "Tortilla de papa y cebolla",
+            "detalle": "para 2",
+            "precio": "9000"
+          },
+          {
+            "nombre": "Buñuelos de jamón y doble queso",
+            "detalle": "",
+            "precio": "7500"
+          }
+        ]
+      },
       "Picadas": [
         {
           "nombre": "Picada de fiambres",
