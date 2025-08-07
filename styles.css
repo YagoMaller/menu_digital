@@ -152,7 +152,7 @@ p{
   align-items: flex-start;
   background-color: var(--color-card-bg);
   padding: 15px;
-  margin: 10px 0;
+  margin: 15px 0;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
 }
