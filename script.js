@@ -45,7 +45,24 @@ let isUserDragging = false;
  */
 function isTextOverflowing(element) {
   if (!element) return false;
+  console.log(element.scrollWidth, element.clientWidth,element);
   return element.scrollWidth > element.clientWidth;
+}
+
+/**
+ * Recibe elemento desbordado y se le reduce el tamaño de la fuente en 1px iterativamente hasta que no se desborde
+ * @param {HTMLElement} element - Elemento HTML a evaluar.
+ * @param {number} minSize - Tamaño mínimo de la fuente.
+ */
+function reducirTexto(element, minSize = 10) {
+  if (!element) return;
+  let fontSize = parseFloat(getComputedStyle(element).fontSize);
+  if (fontSize > minSize) {
+  element.style.fontSize = `${fontSize - 1}px`;
+  if (isTextOverflowing(element)) {
+    reducirTexto(element, minSize);
+  }
+  }
 }
 
 /**
@@ -661,6 +678,7 @@ enableCarouselSnap(subcategoriasDiv);
 
 document.querySelectorAll(".nombre").forEach(el => {
   if (isTextOverflowing(el)) {
+    reducirTexto(el);
     el.classList.add("desbordado");
   }
 });

@@ -149,7 +149,7 @@ p{
 .producto {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   background-color: var(--color-card-bg);
   padding: 15px;
   margin: 15px 0;
@@ -167,9 +167,6 @@ p{
   text-transform: uppercase; ;
 }
 
-.nombre.desbordado {
-  font-size: 13px;
-}
 
 .detalle {
   font-size: 12px;
@@ -216,6 +213,8 @@ p{
   color: var(--color-primary);
   margin-left: 15px;
   font-weight: bold;
+  text-align: right;
+  
 }
 
 /* =========================
