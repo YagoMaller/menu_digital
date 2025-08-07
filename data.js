@@ -33,8 +33,7 @@ const menuData = {
             "detalle": "",
             "precio": "7500"
           }
-        ],
-        "descripcion": "LAS MAS RICARDAS"
+        ]
       },
       "Picadas": {
         "productos": [
@@ -130,8 +129,7 @@ const menuData = {
             "detalle": "hasta 5 ingredientes: <br> Lechuga, tómate, cebolla, zanahoria, huevo, albahaca, jamón, queso, aceitunes",
             "precio": "6500"
           }
-        ],
-        "descripcion": "dasddasda"
+        ]
       },
       "Carnes": {
         "productos": [
@@ -252,8 +250,7 @@ const menuData = {
             "detalle": "",
             "precio": "1500"
           }
-        ],
-        "descripcion": "asdasd"
+        ]
       },
       "Milanesas": {
         "productos": [
@@ -629,45 +626,45 @@ const menuData = {
           {
             "nombre": "Merle",
             "detalle": "",
-            "precio": "6000"
+            "precio": "0"
           },
           {
             "nombre": "Gordons",
             "detalle": "",
-            "precio": "6000"
+            "precio": "0"
           },
           {
             "nombre": "Spirito Blu",
             "detalle": "",
-            "precio": "6000"
+            "precio": "0"
           },
           {
             "nombre": "Principe De Los Apóstoles",
             "detalle": "",
-            "precio": "6500"
+            "precio": "500"
           },
           {
             "nombre": "Heredero/Heraclito",
             "detalle": "",
-            "precio": "6500"
+            "precio": "500"
           },
           {
             "nombre": "Aconcagua/Buenos Aires/Restinga",
             "detalle": "",
-            "precio": "7000"
+            "precio": "1000"
           },
           {
             "nombre": "Beefeater",
             "detalle": "",
-            "precio": "7500"
+            "precio": "1500"
           },
           {
             "nombre": "Bombay / Tanqueray",
             "detalle": "",
-            "precio": "8000"
+            "precio": "2000"
           }
         ],
-        "descripcion": "asdas"
+        "descripcion": "Elegí el Gin que mas te guste"
       },
       "Tragos c/Gin": {
         "productos": [
@@ -702,7 +699,7 @@ const menuData = {
             "precio": "6500"
           }
         ],
-        "descripcion": "asdadasd"
+        "descripcion": "Sumale el precio de la gintonería elegida"
       },
       "Tragos Autor": {
         "productos": [
