@@ -3,7 +3,7 @@
    ========================= */
 :root {
   --color-bg: #24262b;
-  --color-header-bg: rgba(0,0,0,0.9);
+  --color-header-bg: rgba(0,0,0,0.8);
   --color-primary: #C9A227;
   --color-card-bg: #18191c;
   --color-text: white;
@@ -17,6 +17,12 @@
   --transition-bg: 0.5s ease-in-out;
 
 }
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
 
 /* =========================
    BASE
@@ -43,18 +49,10 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   transition: background-image var(--transition-bg);
+  backdrop-filter: blur(5px);
 }
 
-.navegacion::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--color-overlay);
-  z-index: -1;
-}
+
 
 /* =========================
    NAVEGACIÓN CONTENEDORES
@@ -140,9 +138,13 @@ button.active {
 h4 {
   text-transform: uppercase;
   font-size: 18px;
+  margin: 10px 0;
+
 }
 
-
+p{
+  margin: 1em 0;
+}
 
 .producto {
   display: flex;
@@ -179,11 +181,14 @@ h4 {
 }
 
 
+.subcategoria-block{
+  margin: 20px 0;
+}
+
 .descripcion-categoria,
 .descripcion-subcategoria {
   font-size: 14px;
   font-weight: 300;
-  margin: 10px 0;
   text-align: center;
   line-height: 1.4;
   opacity: 0.8;
@@ -191,16 +196,19 @@ h4 {
 
 .descripcion-categoria {
   font-size: 16px;
-  color: #C9A227;
+  color: var(--color-primary);
   font-weight: 500;
-  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .descripcion-subcategoria {
   font-size: 13px;
-  color: #aaa;
-  margin-top: 6px;
-  font-weight: 400;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: left;
+
 }
 
 .precio {
