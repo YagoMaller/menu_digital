@@ -185,6 +185,22 @@ h4 {
   font-weight: 300;
   margin: 10px 0;
   text-align: center;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+.descripcion-categoria {
+  font-size: 16px;
+  color: #C9A227;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.descripcion-subcategoria {
+  font-size: 13px;
+  color: #aaa;
+  margin-top: 6px;
+  font-weight: 400;
 }
 
 .precio {

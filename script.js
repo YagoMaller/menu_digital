@@ -277,6 +277,9 @@ function renderSubcategorias(local, cat, evitarScroll = false) {
 
   const subcats = menuData[local][cat];
   for (const sub in subcats) {
+    // Saltar propiedades especiales como 'descripcion' y 'productos'
+    if (sub === 'descripcion' || sub === 'productos') continue;
+    
     const subBtn = document.createElement("button");
     subBtn.textContent = sub;
     subBtn.onclick = () => {
@@ -329,6 +332,9 @@ function renderCategorias(local, evitarScroll = false) {
   let firstCatText = null;
 
   for (const cat in categorias) {
+    // Saltar propiedades especiales como 'descripcion'
+    if (cat === 'descripcion') continue;
+    
     const catBtn = document.createElement("button");
     catBtn.textContent = cat;
     catBtn.onclick = () => {
@@ -455,6 +461,9 @@ function renderSecciones() {
     isFirst = false;
 
     for (const categoria in menuData[local]) {
+      // Saltar propiedades especiales
+      if (categoria === 'descripcion') continue;
+      
       const sectionCat = document.createElement("section");
       sectionCat.setAttribute("data-categoria", categoria);
       sectionCat.setAttribute("data-local", local);
@@ -467,11 +476,22 @@ function renderSecciones() {
       if (backgroundImages[catKey]) {
         h3.style.backgroundImage = `url('${backgroundImages[catKey]}')`;
       }
-      h3.innerHTML = `<span>${categoria}</span>`;
+      
+      // Agregar descripción de categoría si existe
+      const descripcionCat = menuData[local][categoria].descripcion;
+      if (descripcionCat) {
+        h3.innerHTML = `<span>${categoria}</span><p class="descripcion-categoria">${descripcionCat}</p>`;
+      } else {
+        h3.innerHTML = `<span>${categoria}</span>`;
+      }
       sectionCat.appendChild(h3);
 
       for (const subcategoria in menuData[local][categoria]) {
-        const productos = menuData[local][categoria][subcategoria];
+        // Saltar propiedades especiales
+        if (subcategoria === 'descripcion') continue;
+        
+        const subcategoriaData = menuData[local][categoria][subcategoria];
+        const productos = subcategoriaData.productos || [];
 
         const sectionSub = document.createElement("section");
         sectionSub.setAttribute("data-subcategoria", subcategoria);
@@ -483,11 +503,27 @@ function renderSecciones() {
         if (backgroundImages[key]) {
           const h4 = document.createElement("h4");
           h4.classList.add("titulo-con-fondo");
+          h4.setAttribute("data-subcategoria", subcategoria);
+          h4.setAttribute("data-local", local);
+          h4.setAttribute("data-categoria", categoria);
           h4.style.backgroundImage = `url('${backgroundImages[key]}')`;
-          h4.innerHTML = `<span>${subcategoria}</span>`;
+          
+          // Agregar descripción de subcategoría si existe
+          const descripcionSub = subcategoriaData.descripcion;
+          if (descripcionSub) {
+            h4.innerHTML = `<span>${subcategoria}</span><p class="descripcion-subcategoria">${descripcionSub}</p>`;
+          } else {
+            h4.innerHTML = `<span>${subcategoria}</span>`;
+          }
           sectionSub.appendChild(h4);
         } else {
-          sectionSub.innerHTML = `<h4>${subcategoria}</h4>`;
+          // Agregar descripción de subcategoría si existe
+          const descripcionSub = subcategoriaData.descripcion;
+          if (descripcionSub) {
+            sectionSub.innerHTML = `<h4 data-subcategoria="${subcategoria}" data-local="${local}" data-categoria="${categoria}">${subcategoria}</h4><p class="descripcion-subcategoria">${descripcionSub}</p>`;
+          } else {
+            sectionSub.innerHTML = `<h4 data-subcategoria="${subcategoria}" data-local="${local}" data-categoria="${categoria}">${subcategoria}</h4>`;
+          }
         }
 
         productos.forEach((p) => {
@@ -501,7 +537,6 @@ function renderSecciones() {
               <div class="precio">$${p.precio}</div>
             </div>
           `;
-          
         });
 
         sectionCat.appendChild(sectionSub);
