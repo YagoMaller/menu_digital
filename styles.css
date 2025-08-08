@@ -146,10 +146,7 @@ p{
   margin: 1em 0;
 }
 
-.bannerLogo{
-  max-height: 50%;
-  z-index: 99;
-}
+
 
 .producto {
   display: flex;
@@ -309,6 +306,12 @@ p{
 
 .titulo-con-fondo.sin-texto span {
   display: none;
+}
+
+.bannerLogo{
+  max-height: 50%;
+  z-index: 99;
+  filter: drop-shadow(1px 4px 2px black);
 }
 
 /* =========================
