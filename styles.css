@@ -135,6 +135,10 @@ button.active {
   color: var(--color-primary);
 }
 
+h3 span, h4{
+  filter: drop-shadow(2px 2px 3px black);
+}
+
 h4 {
   text-transform: uppercase;
   font-size: 18px;
