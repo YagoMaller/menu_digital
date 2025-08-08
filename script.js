@@ -11,14 +11,14 @@ const menuContainer = document.getElementById("menu");
 const backgroundImages = {
   "Pancho": "imgPancho.jpg",
   "Bar": "imgBar.jpg",
-  "Chopchop"  : "imgChopchop.jpg",
+  "Chopchop"  : "imgChopchop3.jpg",
   "Panchos": "imgPanchos.jpg",
   "Chopchop-Comidas": "imgComidas.jpg",
   "Chopchop-Bebidas": "imgBebidas.jpg",
   "Chopchop-Tragos": "imgBarsub.jpg",
   "Chopchop-Cafetería": "imgCafe.jpg",
   "Chopchop-Pastelería": "imgPastel.jpg",
-  
+    
 };
 
 let currentLocal = null;
