@@ -18,7 +18,7 @@ const backgroundImages = {
   "Chopchop-Tragos": "imgBarsub.jpg",
   "Chopchop-Cafetería": "imgCafe.jpg",
   "Chopchop-Pastelería": "imgPastel.jpg",
-    
+
 };
 
 let currentLocal = null;
@@ -30,6 +30,7 @@ let scrollTimeout = null;
 let observerTimeout = null;
 let scrollTriggeredByObserver = false;
 let isUserDragging = false;
+let bannerLogo = true;
 
 /**
  * ============================
@@ -454,14 +455,25 @@ function renderSecciones() {
     const sectionLocal = document.createElement("section");
     if (isFirst) {
       const introContainer = document.getElementById("intro-local-container");
-      const introH2 = document.createElement("h2");
-      introH2.classList.add("titulo-con-fondo", "sin-texto", "sin-oscurecer");
-      introH2.setAttribute("data-local", local);
+      introContainer.classList.add("titulo-con-fondo","sin-oscurecer");
       if (backgroundImages[local]) {
-        introH2.style.backgroundImage = `url('${backgroundImages[local]}')`;
+        introContainer.style.backgroundImage = `url('${backgroundImages[local]}')`;
       }
+      if (bannerLogo) {
+        const introH2 = document.createElement("img");
+        introH2.src = "logochop.png";
+        introH2.classList.add("bannerLogo", "sin-oscurecer");
+        introH2.setAttribute("data-local", local);
+        introContainer.appendChild(introH2);
+
+      }else {
+        const introH2 = document.createElement("h2");
+      introH2.classList.add("sin-texto", "sin-oscurecer");
+      introH2.setAttribute("data-local", local);
       introH2.innerHTML = ``; // Sin texto
       introContainer.appendChild(introH2);
+      }
+
     }
     sectionLocal.setAttribute("data-local", local);
 

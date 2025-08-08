@@ -146,6 +146,11 @@ p{
   margin: 1em 0;
 }
 
+.bannerLogo{
+  max-height: 50%;
+  z-index: 99;
+}
+
 .producto {
   display: flex;
   justify-content: space-between;
@@ -290,6 +295,7 @@ p{
   width: 100%;
   background: rgba(0, 0, 0, 0.6);
   z-index: 0;
+  backdrop-filter: blur(2px);
 }
 
 .titulo-con-fondo span {
