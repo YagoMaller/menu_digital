@@ -136,7 +136,7 @@ button.active {
 }
 
 h3 span, h4{
-  filter: drop-shadow(2px 2px 3px black);
+  text-shadow: 2px 2px 3px black;
 }
 
 h4 {
