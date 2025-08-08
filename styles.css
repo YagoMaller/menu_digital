@@ -236,12 +236,14 @@ p{
   display: flex;  
   justify-content: center;    
   align-items: center;       
+
 }
 
 .stickyFooter img {
   height: 60%;
   width: auto;
   margin-top: 2.5vh;
+  filter: drop-shadow(1px 4px 2px black);
 }
 
 /* =========================
