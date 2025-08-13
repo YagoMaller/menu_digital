@@ -556,7 +556,7 @@ const menuData = {
         ]
       }
     },
-    "Tragos": {
+    "Bar": {
       "Tragos Clásicos": {
         "productos": [
           {
@@ -626,47 +626,46 @@ const menuData = {
           {
             "nombre": "Merle",
             "detalle": "",
-            "precio": "0"
+            "precio": "6000"
           },
           {
             "nombre": "Gordons",
             "detalle": "",
-            "precio": "0"
+            "precio": "6000"
           },
           {
             "nombre": "Spirito Blu",
             "detalle": "",
-            "precio": "0"
+            "precio": "6000"
           },
           {
             "nombre": "Principe De Los Apóstoles",
             "detalle": "",
-            "precio": "500"
+            "precio": "6500"
           },
           {
             "nombre": "Heredero/Heraclito",
             "detalle": "",
-            "precio": "500"
+            "precio": "6500"
           },
           {
             "nombre": "Aconcagua/Buenos Aires/Restinga",
             "detalle": "",
-            "precio": "1000"
+            "precio": "7000"
           },
           {
             "nombre": "Beefeater",
             "detalle": "",
-            "precio": "1500"
+            "precio": "7500"
           },
           {
             "nombre": "Bombay / Tanqueray",
             "detalle": "",
-            "precio": "2000"
+            "precio": "8000"
           }
-        ],
-        "descripcion": "Elegí el Gin que mas te guste"
+        ]
       },
-      "Tragos c/Gin": {
+      "Tragos con Gin": {
         "productos": [
           {
             "nombre": "Clásico Tonic",
@@ -698,10 +697,9 @@ const menuData = {
             "detalle": "Gin, Martini",
             "precio": "6500"
           }
-        ],
-        "descripcion": "Sumale el precio de la gintonería elegida"
+        ]
       },
-      "Tragos Autor": {
+      "Tragos de Autor": {
         "productos": [
           {
             "nombre": "Berry Julep",
@@ -1083,49 +1081,44 @@ const menuData = {
       "Cafetería": {
         "productos": [
           {
-            "nombre": "Café Espresso Chico",
-            "detalle": "Sólo O Cortado",
-            "precio": "1"
-          },
-          {
             "nombre": "Café Espresso Mediano",
             "detalle": "Sólo O Cortado",
-            "precio": "1"
+            "precio": "2500"
           },
           {
             "nombre": "Lagrima Mediana O Chica",
             "detalle": "",
-            "precio": "1"
+            "precio": "2500"
           },
           {
             "nombre": "Café Con Leche",
             "detalle": "",
-            "precio": "1"
+            "precio": "3500"
           },
           {
             "nombre": "Café Espresso Doble",
             "detalle": "",
-            "precio": "1"
+            "precio": "5000"
           },
           {
             "nombre": "Tazón De Campo",
             "detalle": "Café C/Leche O Té C/Leche",
-            "precio": "1"
+            "precio": "6500"
           },
           {
             "nombre": "Vaso De Leche",
             "detalle": "",
-            "precio": "1"
+            "precio": "2500"
           },
           {
             "nombre": "Té/ Mate Cocido / Té Especial",
             "detalle": "",
-            "precio": "1"
+            "precio": "2500"
           },
           {
             "nombre": "Té Con Leche",
             "detalle": "",
-            "precio": "1"
+            "precio": "2900"
           }
         ]
       },
@@ -1134,42 +1127,42 @@ const menuData = {
           {
             "nombre": "Capuccino Italiano",
             "detalle": "Café Espresso, Espuma De Leche, Crema Chantilly, Cacao Y Canela",
-            "precio": "1"
+            "precio": "5300"
           },
           {
             "nombre": "Café Moka",
             "detalle": "Doble Espresso, Salsa Especial De Chocolate Y Espuma De Leche Y Cacao",
-            "precio": "1"
+            "precio": "5000"
           },
           {
             "nombre": "Latte De Vainilla",
             "detalle": "Doble Espresso, Salsa De Vainilla Y Espuma De Leche",
-            "precio": "1"
+            "precio": "5000"
           },
           {
             "nombre": "Caramel Macchiato",
             "detalle": "Doble Espresso, Salsa De Caramelo Y Espuma De Leche",
-            "precio": "1"
+            "precio": "5000"
           },
           {
             "nombre": "Submarino",
             "detalle": "",
-            "precio": "1"
+            "precio": "4500"
           },
           {
             "nombre": "Café Irlandés",
             "detalle": "",
-            "precio": "1"
+            "precio": "6300"
           },
           {
             "nombre": "Café Chop Chop",
             "detalle": "",
-            "precio": "1"
+            "precio": "5800"
           },
           {
             "nombre": "Milshakes",
             "detalle": "Frutilla, Chocolate Y Dulce De Leche",
-            "precio": "1"
+            "precio": "7500"
           }
         ]
       },
@@ -1178,26 +1171,26 @@ const menuData = {
           {
             "nombre": "El Que No Falla",
             "detalle": "Café O Té Con Leche + 2 Medialunas Dulces O Saladas",
-            "precio": "1"
+            "precio": "5100"
           },
           {
             "nombre": "Tostado De Campo",
             "detalle": "Café O Té Con Leche + Tostado Árabe Jamón Y Queso",
-            "precio": "1"
+            "precio": "4800"
           },
           {
             "nombre": "Mañana De Campo",
             "detalle": "Tazón De Campo Con Café O Té Con Leche + Canasta De Tostaditas,  Manteca, Mermelada, D De Leche.",
-            "precio": "1"
+            "precio": "7500"
           }
         ]
       },
-      "Jugos Licuados": {
+      "Jugos y Licuados": {
         "productos": [
           {
             "nombre": "Licuados Y Exprimidos",
             "detalle": "Con Agua O Con Leche / Banana / Durazno / Ananá / Frutilla / Mango / Frutos Rojos",
-            "precio": "1"
+            "precio": "5000"
           }
         ]
       },
@@ -1206,7 +1199,7 @@ const menuData = {
           {
             "nombre": "Exprimido De Naranja",
             "detalle": "",
-            "precio": "1"
+            "precio": "4000"
           }
         ]
       },
@@ -1215,12 +1208,12 @@ const menuData = {
           {
             "nombre": "Canasta De Tostaditas Solas",
             "detalle": "",
-            "precio": "1"
+            "precio": "2000"
           },
           {
             "nombre": "Canasta De Tostaditas",
             "detalle": "Con  Dulce De Leche, Mermelada Y Manteca O Queso Crema",
-            "precio": "1"
+            "precio": "2500"
           }
         ]
       },
@@ -1229,17 +1222,17 @@ const menuData = {
           {
             "nombre": "Avocado Toast",
             "detalle": "Palta, Huevo Y Tomate",
-            "precio": "1"
+            "precio": "7500"
           },
           {
             "nombre": "Toston De Crudo, Rúcula Y Queso",
             "detalle": "Sale Con Cherrys Y Oliva",
-            "precio": "1"
+            "precio": "5000"
           },
           {
             "nombre": "Tostada Power",
             "detalle": "Con Huevo Revuelto Y Panceta",
-            "precio": "1"
+            "precio": "7000"
           }
         ]
       },
@@ -1248,42 +1241,42 @@ const menuData = {
           {
             "nombre": "El Clásico Tostado De Miga De Jamon Y Queso",
             "detalle": "",
-            "precio": "1"
+            "precio": "7500"
           },
           {
             "nombre": "Tostado De Miga Primavera",
             "detalle": "",
-            "precio": "1"
+            "precio": "8500"
           },
           {
             "nombre": "El Clásico Tostado Árabe De Jamon Y Queso",
             "detalle": "",
-            "precio": "1"
+            "precio": "7500"
           },
           {
             "nombre": "Tostado Árabe Primavera",
             "detalle": "",
-            "precio": "1"
+            "precio": "8500"
           },
           {
             "nombre": "Un Árabe Indeciso",
             "detalle": "Jamon Queso Y Tomate",
-            "precio": "1"
+            "precio": "8500"
           },
           {
             "nombre": "Tostado Árabe Chop",
             "detalle": "Queso Cheddar Y Panceta",
-            "precio": "1"
+            "precio": "6500"
           },
           {
             "nombre": "Baguette De Manteca, Crudo Y Queso",
             "detalle": "",
-            "precio": "1"
+            "precio": "8000"
           },
           {
             "nombre": "Prensado De Lomito Y Cheddar",
             "detalle": "",
-            "precio": "1"
+            "precio": "5000"
           }
         ]
       },
@@ -1292,17 +1285,17 @@ const menuData = {
           {
             "nombre": "Mix De 3 Quesos",
             "detalle": "",
-            "precio": "1"
+            "precio": "7500"
           },
           {
             "nombre": "Mayo, Palta Y Queso",
             "detalle": "",
-            "precio": "1"
+            "precio": "7500"
           },
           {
             "nombre": "Queso Y Tomate",
             "detalle": "",
-            "precio": "1"
+            "precio": "7000"
           }
         ]
       }
@@ -1313,57 +1306,57 @@ const menuData = {
           {
             "nombre": "Cheescake Con Frutos Rojos",
             "detalle": "",
-            "precio": "1"
+            "precio": "7500"
           },
           {
             "nombre": "Torta Matilda",
             "detalle": "",
-            "precio": "1"
+            "precio": "7500"
           },
           {
             "nombre": "Carrot Cake",
             "detalle": "",
-            "precio": "1"
+            "precio": "7500"
           },
           {
             "nombre": "Red Velvet",
             "detalle": "",
-            "precio": "1"
+            "precio": "7500"
           },
           {
             "nombre": "Lemon Pie",
             "detalle": "",
-            "precio": "1"
+            "precio": "7500"
           },
           {
             "nombre": "Selva Negra",
             "detalle": "",
-            "precio": "1"
+            "precio": "7500"
           },
           {
             "nombre": "Brownie Con Ddl, Crema Y Frutos Rojos",
             "detalle": "",
-            "precio": "1"
+            "precio": "7500"
           },
           {
             "nombre": "Torta Bombón",
             "detalle": "",
-            "precio": "1"
+            "precio": "7500"
           },
           {
             "nombre": "Torta Chajá/Balcarce",
             "detalle": "",
-            "precio": "1"
+            "precio": "7500"
           },
           {
             "nombre": "Crumble De Manzana",
             "detalle": "",
-            "precio": "1"
+            "precio": "7500"
           },
           {
             "nombre": "Tiramisú",
             "detalle": "",
-            "precio": "1"
+            "precio": "7500"
           }
         ]
       },
@@ -1372,47 +1365,47 @@ const menuData = {
           {
             "nombre": "Medialunas",
             "detalle": "",
-            "precio": "1"
+            "precio": "1800"
           },
           {
             "nombre": "Medialuna Con Jamón Y Queso",
             "detalle": "",
-            "precio": "1"
+            "precio": "2500"
           },
           {
             "nombre": "Roll De Canela Con Frosting",
             "detalle": "",
-            "precio": "1"
+            "precio": "4500"
           },
           {
             "nombre": "Alfajor De Maicena",
             "detalle": "",
-            "precio": "1"
+            "precio": "3000"
           },
           {
             "nombre": "Alfajor Artesanal De Choco Negro O Blanco",
             "detalle": "",
-            "precio": "1"
+            "precio": "3300"
           },
           {
             "nombre": "Cookies Xxl  / Rellenas",
             "detalle": "",
-            "precio": "1"
+            "precio": "4000"
           },
           {
             "nombre": "Porción De Chipá",
             "detalle": "Contiene 5 Unidades",
-            "precio": "1"
+            "precio": "3000"
           },
           {
             "nombre": "Alfajor Premium Clalafquen Relleno",
             "detalle": "",
-            "precio": "1"
+            "precio": "7000"
           },
           {
             "nombre": "Pasta Frola",
             "detalle": "",
-            "precio": "1"
+            "precio": "5000"
           }
         ]
       },
@@ -1421,12 +1414,12 @@ const menuData = {
           {
             "nombre": "Waffles De Frutilla",
             "detalle": "Frutillas De Estación, Crema Chantilly Y Syrup De Chocolate",
-            "precio": "1"
+            "precio": "6000"
           },
           {
             "nombre": "Waffles De Banana Y Dulce De Leche",
             "detalle": "Banana, Ddl Y Syrup",
-            "precio": "1"
+            "precio": "6000"
           }
         ]
       },
@@ -1435,22 +1428,22 @@ const menuData = {
           {
             "nombre": "Dulce De Leche",
             "detalle": "",
-            "precio": "1"
+            "precio": "750"
           },
           {
             "nombre": "Crema Chantilly",
             "detalle": "",
-            "precio": "1"
+            "precio": "750"
           },
           {
             "nombre": "Mixto",
             "detalle": "",
-            "precio": "1"
+            "precio": "600"
           },
           {
             "nombre": "Bocha De Helado",
             "detalle": "",
-            "precio": "1"
+            "precio": "3000"
           }
         ]
       },
@@ -1459,67 +1452,67 @@ const menuData = {
           {
             "nombre": "Flan Casero",
             "detalle": "",
-            "precio": "1"
+            "precio": "3500"
           },
           {
             "nombre": "Budin De Pan Casero",
             "detalle": "",
-            "precio": "1"
+            "precio": "2000"
           },
           {
             "nombre": "Hecho Y Derecho",
             "detalle": "El Clásico Queso Y Dulce",
-            "precio": "1"
+            "precio": "4000"
           },
           {
             "nombre": "Panqueques Con Dulce De Leche",
             "detalle": "",
-            "precio": "1"
+            "precio": "3500"
           },
           {
             "nombre": "Tiramisú",
             "detalle": "",
-            "precio": "1"
+            "precio": "5000"
           },
           {
             "nombre": "Brownie Tibio Con Bocha De Helado Americana Y Frutos Rojos",
             "detalle": "",
-            "precio": "1"
+            "precio": "6000"
           },
           {
             "nombre": "Crumble De Manzana Tibio Con Bocha De Helado Americana Y Canela",
             "detalle": "",
-            "precio": "1"
+            "precio": "6000"
           },
           {
             "nombre": "Copa Cheesecake Con Frutos Rojos",
             "detalle": "",
-            "precio": "1"
+            "precio": "5000"
           },
           {
             "nombre": "Copa Oreo",
             "detalle": "",
-            "precio": "1"
+            "precio": "5000"
           },
           {
             "nombre": "Copa Chocotorta",
             "detalle": "",
-            "precio": "1"
+            "precio": "5000"
           },
           {
             "nombre": "Copa Margarita",
             "detalle": "El Postrecito Con Vainillas De La Abuela",
-            "precio": "1"
+            "precio": "5000"
           },
           {
             "nombre": "Torta Chajá / Postre Balcarce",
             "detalle": "",
-            "precio": "1"
+            "precio": "5000"
           },
           {
             "nombre": "Ensalada De Frutas",
             "detalle": "",
-            "precio": "1"
+            "precio": "4000"
           }
         ]
       },
@@ -1528,22 +1521,22 @@ const menuData = {
           {
             "nombre": "Bombón De Pistacho Y Chocolate Blanco",
             "detalle": "",
-            "precio": "1"
+            "precio": "5000"
           },
           {
             "nombre": "2 Bochas De Helado Americana",
             "detalle": "",
-            "precio": "1"
+            "precio": "3000"
           },
           {
             "nombre": "Cassatta",
             "detalle": "",
-            "precio": "1"
+            "precio": "4000"
           },
           {
             "nombre": "Almendrado",
             "detalle": "",
-            "precio": "1"
+            "precio": "4000"
           }
         ]
       }
