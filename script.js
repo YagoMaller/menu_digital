@@ -16,6 +16,7 @@ const backgroundImages = {
   "Chopchop-Comidas": "imgComidas2.jpg",
   "Chopchop-Bebidas": "imgBebidas2.jpg",
   "Chopchop-Tragos": "imgBarsub.jpg",
+  "Chopchop-Bar": "imgBarsub.jpg",
   "Chopchop-Cafetería": "imgCafe3.jpg",
   "Chopchop-Pastelería": "imgPastel.jpg",
 
