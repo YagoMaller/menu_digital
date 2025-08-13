@@ -663,9 +663,10 @@ const menuData = {
             "detalle": "",
             "precio": "8000"
           }
-        ]
+        ],
+        "descripcion": "Elegí el Gin que mas te guste"
       },
-      "Tragos con Gin": {
+      "Tragos c/Gin": {
         "productos": [
           {
             "nombre": "Clásico Tonic",
@@ -697,9 +698,10 @@ const menuData = {
             "detalle": "Gin, Martini",
             "precio": "6500"
           }
-        ]
+        ],
+        "descripcion": "Sumale el precio de la gintonería elegida"
       },
-      "Tragos de Autor": {
+      "Tragos Autor": {
         "productos": [
           {
             "nombre": "Berry Julep",
