@@ -11,7 +11,7 @@ const menuContainer = document.getElementById("menu");
 const backgroundImages = {
   "Pancho": "imgPancho.jpg",
   "Bar": "imgBar.jpg",
-  "Chopchop"  : "imgChopchop3.jpg",
+  "Chopchop": "imgChopchop3.jpg",
   "Panchos": "imgPanchos.jpg",
   "Chopchop-Comidas": "imgComidas2.jpg",
   "Chopchop-Bebidas": "imgBebidas2.jpg",
@@ -47,7 +47,7 @@ let bannerLogo = true;
  */
 function isTextOverflowing(element) {
   if (!element) return false;
-  console.log(element.scrollWidth, element.clientWidth,element);
+  console.log(element.scrollWidth, element.clientWidth, element);
   return element.scrollWidth > element.clientWidth;
 }
 
@@ -60,10 +60,10 @@ function reducirTexto(element, minSize = 10) {
   if (!element) return;
   let fontSize = parseFloat(getComputedStyle(element).fontSize);
   if (fontSize > minSize) {
-  element.style.fontSize = `${fontSize - 1}px`;
-  if (isTextOverflowing(element)) {
-    reducirTexto(element, minSize);
-  }
+    element.style.fontSize = `${fontSize - 1}px`;
+    if (isTextOverflowing(element)) {
+      reducirTexto(element, minSize);
+    }
   }
 }
 
@@ -99,7 +99,7 @@ function scrollToWithOffset(element) {
   const headerOffset = document.querySelector(".navegacion").offsetHeight;
   const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
   const offsetPosition = elementPosition - headerOffset - 10;
-        console.log("Scroll to :", element);
+  console.log("Scroll to :", element);
   window.scrollTo({
     top: offsetPosition,
     behavior: "smooth",
@@ -157,7 +157,7 @@ function scrollToCenterButton(container, text) {
 
   const distance = btnCenter - containerCenter;
 
-  if (Math.abs(distance) >  1 ) {
+  if (Math.abs(distance) > 1) {
     isCenteringButton = true;
     container.scrollBy({ left: distance, behavior: "smooth" });
     setTimeout(() => {
@@ -214,20 +214,20 @@ function toggleCarouselIfNeeded(container) {
 function enableCarouselSnap(container) {
   let scrollTimeout = null;
   if (!container.classList.contains("es-carousel")) return;
-// Marcar cuando el usuario hace click/touch sobre el carrusel
+  // Marcar cuando el usuario hace click/touch sobre el carrusel
   container.addEventListener("pointerdown", () => {
-  isUserDragging = true;
-});
-// Marcar también uso de la rueda del mouse
-container.addEventListener("wheel", () => {
-  isUserDragging = true;
-});
+    isUserDragging = true;
+  });
+  // Marcar también uso de la rueda del mouse
+  container.addEventListener("wheel", () => {
+    isUserDragging = true;
+  });
   container.addEventListener("scroll", () => {
     if (scrollTimeout) clearTimeout(scrollTimeout);
 
     scrollTimeout = setTimeout(() => {
-      if (!isUserDragging || isScrollingByClick || isCenteringButton){
-              isUserDragging = false;
+      if (!isUserDragging || isScrollingByClick || isCenteringButton) {
+        isUserDragging = false;
         return; // 🔐 protección adicional
       }
 
@@ -243,7 +243,7 @@ container.addEventListener("wheel", () => {
           );
           if (target && !scrollTriggeredByObserver && !blockInitialScroll) {
             isScrollingByClick = true;
-                    console.log("Scroll by enablecarrusel", target);
+            console.log("Scroll by enablecarrusel", target);
             scrollToWithOffset(target);
           }
         }
@@ -255,17 +255,17 @@ container.addEventListener("wheel", () => {
           const target = document.querySelector(
             `[data-categoria='${text}'][data-local='${currentLocal}']`
           );
-          if (target && !scrollTriggeredByObserver  && !blockInitialScroll) {
+          if (target && !scrollTriggeredByObserver && !blockInitialScroll) {
             isScrollingByClick = true;
             console.log("Scroll by enablecarrusel2:", target);
             renderSubcategorias(currentLocal, target.getAttribute("data-categoria"), true);
-            scrollToWithOffset(target); 
+            scrollToWithOffset(target);
           }
         }
       }
       isUserDragging = false;
     }, 100);
-    
+
   });
 }
 
@@ -298,7 +298,7 @@ function renderSubcategorias(local, cat, evitarScroll = false) {
   for (const sub in subcats) {
     // Saltar propiedades especiales como 'descripcion' y 'productos'
     if (sub === 'descripcion' || sub === 'productos') continue;
-    
+
     const subBtn = document.createElement("button");
     subBtn.textContent = sub;
     subBtn.onclick = () => {
@@ -353,7 +353,7 @@ function renderCategorias(local, evitarScroll = false) {
   for (const cat in categorias) {
     // Saltar propiedades especiales como 'descripcion'
     if (cat === 'descripcion') continue;
-    
+
     const catBtn = document.createElement("button");
     catBtn.textContent = cat;
     catBtn.onclick = () => {
@@ -365,7 +365,7 @@ function renderCategorias(local, evitarScroll = false) {
       );
       if (target) {
         isScrollingByClick = true;
-                console.log("Scroll by rendercategorias:", target);
+        console.log("Scroll by rendercategorias:", target);
         scrollToWithOffset(target);
       }
     };
@@ -373,7 +373,7 @@ function renderCategorias(local, evitarScroll = false) {
 
     if (firstCat) {
       if (currentCategoria !== cat || currentLocal !== local) {
-          console.log("Renderizando de rendercategorias");
+        console.log("Renderizando de rendercategorias");
         renderSubcategorias(local, cat, evitarScroll);
       }
       highlightButton(categoriasDiv, cat);
@@ -382,7 +382,7 @@ function renderCategorias(local, evitarScroll = false) {
       firstCatText = cat;
       firstCat = false;
 
-    
+
       if (!evitarScroll) {
         requestAnimationFrame(() => {
           scrollToCenterButton(categoriasDiv, cat);
@@ -425,11 +425,12 @@ function renderNavegacion() {
       const localBtn = document.createElement("button");
       localBtn.textContent = local;
       localBtn.onclick = () => {
+        highlightButton(localesDiv, local);
         renderCategorias(local);
         const section = document.querySelector(`[data-local='${local}']`);
         if (section) {
           isScrollingByClick = true;
-                  console.log("Scroll by renderNavegacion:", target);
+          console.log("Scroll by renderNavegacion:", section);
           scrollToWithOffset(section);
         }
       };
@@ -456,23 +457,23 @@ function renderSecciones() {
     const sectionLocal = document.createElement("section");
     if (isFirst) {
       const introContainer = document.getElementById("intro-local-container");
-      introContainer.classList.add("titulo-con-fondo","sin-oscurecer");
+      introContainer.classList.add("titulo-con-fondo", "sin-oscurecer");
       if (backgroundImages[local]) {
         introContainer.style.backgroundImage = `url('${backgroundImages[local]}')`;
       }
       if (bannerLogo) {
         const introH2 = document.createElement("img");
-        introH2.src = "logochop.png";
+        introH2.src = getBasePath() + "logochop.png";
         introH2.classList.add("bannerLogo", "sin-oscurecer");
         introH2.setAttribute("data-local", local);
         introContainer.appendChild(introH2);
 
-      }else {
+      } else {
         const introH2 = document.createElement("h2");
-      introH2.classList.add("sin-texto", "sin-oscurecer");
-      introH2.setAttribute("data-local", local);
-      introH2.innerHTML = ``; // Sin texto
-      introContainer.appendChild(introH2);
+        introH2.classList.add("sin-texto", "sin-oscurecer");
+        introH2.setAttribute("data-local", local);
+        introH2.innerHTML = ``; // Sin texto
+        introContainer.appendChild(introH2);
       }
 
     }
@@ -493,7 +494,7 @@ function renderSecciones() {
     for (const categoria in menuData[local]) {
       // Saltar propiedades especiales
       if (categoria === 'descripcion') continue;
-      
+
       const sectionCat = document.createElement("section");
       sectionCat.setAttribute("data-categoria", categoria);
       sectionCat.setAttribute("data-local", local);
@@ -506,7 +507,7 @@ function renderSecciones() {
       if (backgroundImages[catKey]) {
         h3.style.backgroundImage = `url('${backgroundImages[catKey]}')`;
       }
-      
+
       // Agregar descripción de categoría si existe
       const descripcionCat = menuData[local][categoria].descripcion;
       if (descripcionCat) {
@@ -519,7 +520,7 @@ function renderSecciones() {
       for (const subcategoria in menuData[local][categoria]) {
         // Saltar propiedades especiales
         if (subcategoria === 'descripcion') continue;
-        
+
         const subcategoriaData = menuData[local][categoria][subcategoria];
         const productos = subcategoriaData.productos || [];
 
@@ -528,7 +529,7 @@ function renderSecciones() {
         sectionSub.dataset.local = local;
         sectionSub.dataset.categoria = categoria;
         sectionSub.classList.add("subcategoria-block");
-        
+
         const key = `${local}-${categoria}-${subcategoria}`;
         if (backgroundImages[key]) {
           const h4 = document.createElement("h4");
@@ -537,7 +538,7 @@ function renderSecciones() {
           h4.setAttribute("data-local", local);
           h4.setAttribute("data-categoria", categoria);
           h4.style.backgroundImage = `url('${backgroundImages[key]}')`;
-          
+
           // Agregar descripción de subcategoría si existe
           const descripcionSub = subcategoriaData.descripcion;
           if (descripcionSub) {
@@ -634,17 +635,18 @@ function setupIntersectionObserver() {
     const sub = target.getAttribute("data-subcategoria");
     const cat = target.getAttribute("data-categoria");
     const loc = target.getAttribute("data-local");
-    
+
 
     if (currentLocal !== loc) {
       renderCategorias(loc, true);
+      highlightButton(localesDiv, loc);
     }
 
     if (currentCategoria !== cat || subcategoriasDiv.childElementCount === 0) {
       currentCategoria = cat;
       highlightButton(categoriasDiv, cat);
       renderSubcategorias(loc, cat, true);
-          console.log("Renderizando de intersection para:", cat);
+      console.log("Renderizando de intersection para:", cat);
     }
 
     highlightButton(subcategoriasDiv, sub);
@@ -681,23 +683,133 @@ window.addEventListener("scroll", () => {
  */
 
 // Inicialización del menú interactivo
-setupLoader(); 
-renderNavegacion();
-renderSecciones();
-setTimeout(setupIntersectionObserver, 500);
-enableCarouselSnap(categoriasDiv);
-enableCarouselSnap(subcategoriasDiv);
 
+async function loadMenuData() {
+  try {
+    let excelFile = 'menu_data.xlsx';
+    const path = window.location.pathname;
 
-document.querySelectorAll(".nombre").forEach(el => {
-  if (isTextOverflowing(el)) {
-    reducirTexto(el);
-    el.classList.add("desbordado");
+    if (path.includes('/pehuen/')) {
+      excelFile = '../menu_pehuen.xlsx';
+    } else if (path.includes('/parador/')) {
+      excelFile = '../menu_parador.xlsx';
+    }
+
+    console.log("Cargando archivo:", excelFile);
+
+    const response = await fetch(excelFile + '?v=' + new Date().getTime());
+    if (!response.ok) throw new Error('No se pudo cargar el archivo Excel: ' + excelFile);
+
+    const arrayBuffer = await response.arrayBuffer();
+    const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+
+    // Procesar hoja "menu"
+    const menuData = {};
+    const menuSheet = workbook.Sheets['menu'];
+    if (menuSheet) {
+      const menuRows = XLSX.utils.sheet_to_json(menuSheet);
+
+      menuRows.forEach(row => {
+        const local = row["Local"];
+        const categoria = row["Categoría"];
+        const subcategoria = row["Subcategoría"];
+        const nombre = row["Nombre"];
+        const detalle = row["Detalle"] ? String(row["Detalle"]) : "";
+        let precio = row["Precio"];
+
+        if (precio === undefined || precio === null || isNaN(precio)) return;
+        precio = String(parseInt(precio));
+
+        if (!menuData[local]) menuData[local] = {};
+        if (!menuData[local][categoria]) menuData[local][categoria] = {};
+        if (!menuData[local][categoria][subcategoria]) {
+          menuData[local][categoria][subcategoria] = { "productos": [] };
+        }
+
+        menuData[local][categoria][subcategoria]["productos"].push({
+          "nombre": nombre,
+          "detalle": detalle,
+          "precio": precio
+        });
+      });
+    }
+
+    // Procesar hoja "descripciones"
+    const descSheet = workbook.Sheets['descripciones'];
+    if (descSheet) {
+      const descRows = XLSX.utils.sheet_to_json(descSheet);
+
+      descRows.forEach(row => {
+        const categoria = row["Categoria"];
+        const subcategoria = row["Subcategoria"];
+        const descripcion = row["Descripcion"];
+
+        const isSubEmpty = !subcategoria || subcategoria === "";
+
+        for (const localKey in menuData) {
+          if (menuData[localKey][categoria]) {
+            if (isSubEmpty) {
+              menuData[localKey][categoria]["descripcion"] = descripcion;
+            } else if (menuData[localKey][categoria][subcategoria]) {
+              menuData[localKey][categoria][subcategoria]["descripcion"] = descripcion;
+            }
+          }
+        }
+      });
+    }
+
+    return menuData;
+
+  } catch (error) {
+    console.error("Error cargando menu data:", error);
+    return null;
   }
-});
+}
 
-document.querySelectorAll(".detalle").forEach(el => {
-  if (isTextOverflowing(el)) {
-    el.classList.add("desbordado");
+
+function getBasePath() {
+  const path = window.location.pathname;
+  if (path.includes('/pehuen/') || path.includes('/parador/')) {
+    return '../';
   }
-});
+  return '';
+}
+
+async function init() {
+  setupLoader();
+
+  // Fix paths in backgroundImages
+  const basePath = getBasePath();
+  for (const key in backgroundImages) {
+    backgroundImages[key] = basePath + backgroundImages[key];
+  }
+
+  const data = await loadMenuData();
+  if (data) {
+    window.menuData = data; // Assign to global for compatibility
+    renderNavegacion();
+    renderSecciones();
+
+    setTimeout(setupIntersectionObserver, 500);
+    enableCarouselSnap(categoriasDiv);
+    enableCarouselSnap(subcategoriasDiv);
+
+    // Check overflow after rendering
+    setTimeout(() => {
+      document.querySelectorAll(".nombre").forEach(el => {
+        if (isTextOverflowing(el)) {
+          reducirTexto(el);
+          el.classList.add("desbordado");
+        }
+      });
+
+      document.querySelectorAll(".detalle").forEach(el => {
+        if (isTextOverflowing(el)) {
+          el.classList.add("desbordado");
+        }
+      });
+    }, 100);
+  }
+}
+
+init();

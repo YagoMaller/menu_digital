@@ -61,36 +61,27 @@ def procesar_excel_con_descripciones(archivo_excel):
     
     return menu_data
 
-# Leer el Excel
-df = pd.read_excel("menu_data.xlsx")
 
-# Crear estructura de menuData
-menu_data = {}
+def process_file(input_file, output_js):
+    try:
+        # Procesar con descripciones
+        menu_data_con_descripciones = procesar_excel_con_descripciones(input_file)
+        
+        # Exportar como archivo JavaScript con estructura completa
+        with open(output_js, "w", encoding="utf-8") as f:
+            f.write("const menuData = ")
+            json.dump(menu_data_con_descripciones, f, ensure_ascii=False, indent=2)
+            f.write(";")
+        print(f"Processed {input_file} -> {output_js}")
+    except Exception as e:
+        print(f"Error processing {input_file}: {e}")
 
-for _, row in df.iterrows():
-    local = row["Local"]
-    categoria = row["Categoría"]
-    subcategoria = row["Subcategoría"]
-    nombre = row["Nombre"]
-    detalle = "" if pd.isna(row["Detalle"]) else str(row["Detalle"])
-    precio = row["Precio"]
-    if pd.isna(precio) or not isinstance(precio, (int, float)):
-        continue
-    precio = str(int(precio))
+# Process all files
+files_to_process = [
+    ("menu_data.xlsx", "data.js"),
+    ("menu_pehuen.xlsx", "data_pehuen.js"),
+    ("menu_parador.xlsx", "data_parador.js")
+]
 
-
-    # Estructura anidada
-    menu_data.setdefault(local, {}).setdefault(categoria, {}).setdefault(subcategoria, []).append({
-        "nombre": nombre,
-        "detalle": detalle,
-        "precio": str(precio)
-    })
-
-# Procesar con descripciones
-menu_data_con_descripciones = procesar_excel_con_descripciones("menu_data.xlsx")
-
-# Exportar como archivo JavaScript con estructura completa
-with open("data.js", "w", encoding="utf-8") as f:
-    f.write("const menuData = ")
-    json.dump(menu_data_con_descripciones, f, ensure_ascii=False, indent=2)
-    f.write(";")
+for input_name, output_name in files_to_process:
+    process_file(input_name, output_name)
