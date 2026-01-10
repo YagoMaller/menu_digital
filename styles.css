@@ -3,7 +3,7 @@
    ========================= */
 :root {
   --color-bg: #24262b;
-  --color-header-bg: rgba(0,0,0,0.7);
+  --color-header-bg: rgba(0, 0, 0, 0.7);
   --color-primary: #C9A227;
   --color-card-bg: #18191c;
   --color-text: white;
@@ -18,7 +18,7 @@
 
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -57,7 +57,9 @@ body {
 /* =========================
    NAVEGACIÓN CONTENEDORES
    ========================= */
-.locales, .categorias, .subcategorias {
+.locales,
+.categorias,
+.subcategorias {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -86,12 +88,14 @@ body {
 }
 
 .indicadores-carrusel .indicador.activo {
-  background-color: #C9A227; /* Dorado */
-    width: 5px;
+  background-color: #C9A227;
+  /* Dorado */
+  width: 5px;
   height: 5px;
   margin-top: -1px;
 
 }
+
 /* =========================
    BOTONES
    ========================= */
@@ -112,8 +116,8 @@ button.active {
   color: var(--color-primary);
   font-size: 16px;
   transform: scale(1.1);
-  transition: transform var(--transition-fast), 
-              font-size var(--transition-fast);
+  transition: transform var(--transition-fast),
+    font-size var(--transition-fast);
 
 }
 
@@ -130,12 +134,14 @@ button.active {
 /* =========================
    MENÚ Y PRODUCTOS
    ========================= */
-.menu h2, .menu h3 {
+.menu h2,
+.menu h3 {
   font-family: var(--font-title);
   color: var(--color-primary);
 }
 
-h3 span, h4{
+h3 span,
+h4 {
   text-shadow: 2px 2px 3px black;
 }
 
@@ -146,7 +152,7 @@ h4 {
 
 }
 
-p{
+p {
   margin: 1em 0;
 }
 
@@ -170,7 +176,8 @@ p{
 .nombre {
   font-size: 15px;
   font-weight: 600;
-  text-transform: uppercase; ;
+  text-transform: uppercase;
+  ;
 }
 
 
@@ -184,7 +191,7 @@ p{
 }
 
 
-.subcategoria-block{
+.subcategoria-block {
   margin: 20px 0;
 }
 
@@ -220,7 +227,7 @@ p{
   margin-left: 15px;
   font-weight: bold;
   text-align: right;
-  
+
 }
 
 /* =========================
@@ -233,16 +240,15 @@ p{
   bottom: 0;
   width: 100%;
   text-align: center;
-  display: flex;  
-  justify-content: center;    
-  align-items: center;       
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 
 .stickyFooter img {
-  max-height: 6vh;
+  max-height: 10vh;
   width: auto;
-  margin-top: 2.5vh;
   filter: drop-shadow(1px 4px 2px black);
 }
 
@@ -314,7 +320,7 @@ p{
   display: none;
 }
 
-.bannerLogo{
+.bannerLogo {
   max-height: 50%;
   z-index: 99;
   filter: drop-shadow(1px 4px 2px black);
@@ -323,7 +329,8 @@ p{
 /* =========================
    CAROUSEL CATEGORÍAS
    ========================= */
-.categorias, .subcategorias {
+.categorias,
+.subcategorias {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
@@ -337,7 +344,8 @@ p{
   scrollbar-width: none;
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory; /* Added for native snapping */
+  scroll-snap-type: x mandatory;
+  /* Added for native snapping */
 }
 
 .categorias.es-carousel::-webkit-scrollbar,
@@ -390,6 +398,7 @@ p{
     transform: scale(0.6);
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
@@ -423,13 +432,14 @@ p{
     display: block;
     width: 100%;
   }
+
   .nombre.desbordado {
     white-space: wrap;
   }
 
   .detalle.desbordado {
-  white-space: wrap;
-}
+    white-space: wrap;
+  }
 
   .producto .precio {
     flex: 0 0 auto;

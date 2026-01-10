@@ -484,7 +484,7 @@ function renderSecciones() {
       }
       if (bannerLogo) {
         const introH2 = document.createElement("img");
-        introH2.src = getBasePath() + "logochop.png";
+        introH2.src = getBasePath() + "logopan.png";
         introH2.classList.add("bannerLogo", "sin-oscurecer");
         introH2.setAttribute("data-local", local);
         introContainer.appendChild(introH2);
