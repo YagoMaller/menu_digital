@@ -9,8 +9,8 @@ const subcategoriasDiv = document.querySelector(".subcategorias");
 const menuContainer = document.getElementById("menu");
 
 const backgroundImages = {
-  "Pancho": "",
-  "Bar": "imgBar.jpg",
+  "Pancho": "imgPancho.jpg",
+  "Bar": "imgBar2.jpg",
   "Chopchop": "imgChopchop3.jpg",
   "Panchos": "imgPanchos.jpg",
   "Chopchop-Comidas": "imgComidas2.jpg",
