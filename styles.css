@@ -337,6 +337,7 @@ p{
   scrollbar-width: none;
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory; /* Added for native snapping */
 }
 
 .categorias.es-carousel::-webkit-scrollbar,

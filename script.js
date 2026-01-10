@@ -226,6 +226,10 @@ function enableCarouselSnap(container) {
     if (scrollTimeout) clearTimeout(scrollTimeout);
 
     scrollTimeout = setTimeout(() => {
+      /* 
+         Comentado para evitar redirección automática al scrollear.
+         El usuario debe clickear explícitamente para cambiar de sección.
+      
       if (!isUserDragging || isScrollingByClick || isCenteringButton) {
         isUserDragging = false;
         return; // 🔐 protección adicional
@@ -263,6 +267,7 @@ function enableCarouselSnap(container) {
           }
         }
       }
+      */
       isUserDragging = false;
     }, 100);
 
@@ -289,6 +294,19 @@ function setNavegacionBackground(imagePath) {
  * @param {string} local - Nombre del local actual.
  * @param {string} cat - Categoría seleccionada.
  */
+/**
+ * Determina si una subcategoría debe mostrarse en la navegación y títulos.
+ * Oculta si es 'general' o igual al nombre de la categoría (case-insensitive).
+ * @param {string} sub - Nombre de la subcategoría.
+ * @param {string} cat - Nombre de la categoría.
+ * @returns {boolean}
+ */
+function shouldShowSubcategory(sub, cat) {
+  const s = sub.toLowerCase().trim();
+  const c = cat.toLowerCase().trim();
+  return s !== 'general' && s !== c;
+}
+
 function renderSubcategorias(local, cat, evitarScroll = false) {
   subcategoriasDiv.innerHTML = "";
   highlightButton(categoriasDiv, cat);
@@ -298,6 +316,9 @@ function renderSubcategorias(local, cat, evitarScroll = false) {
   for (const sub in subcats) {
     // Saltar propiedades especiales como 'descripcion' y 'productos'
     if (sub === 'descripcion' || sub === 'productos') continue;
+
+    // Filter Logic
+    if (!shouldShowSubcategory(sub, cat)) continue;
 
     const subBtn = document.createElement("button");
     subBtn.textContent = sub;
@@ -530,30 +551,33 @@ function renderSecciones() {
         sectionSub.dataset.categoria = categoria;
         sectionSub.classList.add("subcategoria-block");
 
-        const key = `${local}-${categoria}-${subcategoria}`;
-        if (backgroundImages[key]) {
-          const h4 = document.createElement("h4");
-          h4.classList.add("titulo-con-fondo");
-          h4.setAttribute("data-subcategoria", subcategoria);
-          h4.setAttribute("data-local", local);
-          h4.setAttribute("data-categoria", categoria);
-          h4.style.backgroundImage = `url('${backgroundImages[key]}')`;
+        // Solo mostrar título si no es redundante
+        if (shouldShowSubcategory(subcategoria, categoria)) {
+          const key = `${local}-${categoria}-${subcategoria}`;
+          if (backgroundImages[key]) {
+            const h4 = document.createElement("h4");
+            h4.classList.add("titulo-con-fondo");
+            h4.setAttribute("data-subcategoria", subcategoria);
+            h4.setAttribute("data-local", local);
+            h4.setAttribute("data-categoria", categoria);
+            h4.style.backgroundImage = `url('${backgroundImages[key]}')`;
 
-          // Agregar descripción de subcategoría si existe
-          const descripcionSub = subcategoriaData.descripcion;
-          if (descripcionSub) {
-            h4.innerHTML = `<span>${subcategoria}</span><p class="descripcion-subcategoria">${descripcionSub}</p>`;
+            // Agregar descripción de subcategoría si existe
+            const descripcionSub = subcategoriaData.descripcion;
+            if (descripcionSub) {
+              h4.innerHTML = `<span>${subcategoria}</span><p class="descripcion-subcategoria">${descripcionSub}</p>`;
+            } else {
+              h4.innerHTML = `<span>${subcategoria}</span>`;
+            }
+            sectionSub.appendChild(h4);
           } else {
-            h4.innerHTML = `<span>${subcategoria}</span>`;
-          }
-          sectionSub.appendChild(h4);
-        } else {
-          // Agregar descripción de subcategoría si existe
-          const descripcionSub = subcategoriaData.descripcion;
-          if (descripcionSub) {
-            sectionSub.innerHTML = `<h4 data-subcategoria="${subcategoria}" data-local="${local}" data-categoria="${categoria}">${subcategoria}</h4><p class="descripcion-subcategoria">${descripcionSub}</p>`;
-          } else {
-            sectionSub.innerHTML = `<h4 data-subcategoria="${subcategoria}" data-local="${local}" data-categoria="${categoria}">${subcategoria}</h4>`;
+            // Agregar descripción de subcategoría si existe
+            const descripcionSub = subcategoriaData.descripcion;
+            if (descripcionSub) {
+              sectionSub.innerHTML = `<h4 data-subcategoria="${subcategoria}" data-local="${local}" data-categoria="${categoria}">${subcategoria}</h4><p class="descripcion-subcategoria">${descripcionSub}</p>`;
+            } else {
+              sectionSub.innerHTML = `<h4 data-subcategoria="${subcategoria}" data-local="${local}" data-categoria="${categoria}">${subcategoria}</h4>`;
+            }
           }
         }
 
@@ -592,7 +616,7 @@ function setupLoader() {
   const minDisplayTime = 900; // milisegundos: mínimo visible 1.5s
   const startTime = performance.now();
 
-  window.addEventListener("load", () => {
+  const hideLoader = () => {
     const elapsed = performance.now() - startTime;
     const remainingTime = Math.max(0, minDisplayTime - elapsed);
 
@@ -603,7 +627,13 @@ function setupLoader() {
         loader.style.display = "none";
       }, 800); // tiempo de transición CSS
     }, remainingTime);
-  });
+  };
+
+  if (document.readyState === 'complete') {
+    hideLoader();
+  } else {
+    window.addEventListener("load", hideLoader);
+  }
 }
 
 /**
@@ -686,7 +716,7 @@ window.addEventListener("scroll", () => {
 
 async function loadMenuData() {
   try {
-    let excelFile = 'menu_data.xlsx';
+    let excelFile = 'menu_pehuen.xlsx';
     const path = window.location.pathname;
 
     if (path.includes('/pehuen/')) {
@@ -701,6 +731,11 @@ async function loadMenuData() {
     if (!response.ok) throw new Error('No se pudo cargar el archivo Excel: ' + excelFile);
 
     const arrayBuffer = await response.arrayBuffer();
+
+    if (typeof XLSX === 'undefined') {
+      throw new Error('La librería XLSX no está definida. Verifique su conexión a internet.');
+    }
+
     const workbook = XLSX.read(arrayBuffer, { type: 'array' });
 
     // Procesar hoja "menu"
@@ -812,4 +847,4 @@ async function init() {
   }
 }
 
-init();
+window.addEventListener("load", init);
